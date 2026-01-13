@@ -103,43 +103,7 @@ $ make model
 ```
 
 ## 快速开始示例
-
-### 1. clone项目
-
-![初始化项目](deploy/access/快速开始/1初始化项目.jpg)
-
-### 2. 打开项目
-
-![打开项目](deploy/access/快速开始/2打开项目.jpg)
-
-### 3. 替换包名引用
-
-![替换包名引用](deploy/access/快速开始/3替换包名引用.jpg)
-
-### 4. 启动go模块
-
-![启动go模块](deploy/access/快速开始/4启动go模块.jpg)
-
-### 5. 安装gosdk
-
-![下载依赖包](deploy/access/快速开始/5安装gosdk.png)
-
-### 6. 下载依赖包
-
-![下载依赖包](deploy/access/快速开始/6下载依赖包.jpg)
-
-### 7. 启动redis
-
-![启动redis](deploy/access/快速开始/7启动redis.jpg)
-
-### 8. 启动项目
-
-![启动项目](deploy/access/快速开始/8启动项目.jpg)
-
-### 9. 启动成功
-
-![启动项目](deploy/access/快速开始/9启动成功.jpg)
-
+参考 [go-zero-box 快速开始示例](https://github.com/prf16/go-zero-box?tab=readme-ov-file#%E5%BF%AB%E9%80%9F%E5%BC%80%E5%A7%8B%E7%A4%BA%E4%BE%8B)
 
 ## 常见问题
 ### 1. go mod tidy 超时 i/o timeout
