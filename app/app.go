@@ -13,7 +13,7 @@ import (
 	"go-zero-box-rpc/app/internal/config"
 	helloServer "go-zero-box-rpc/app/internal/server/hello"
 	userServer "go-zero-box-rpc/app/internal/server/user"
-	"go-zero-box-rpc/app/rpc"
+	"go-zero-box-rpc/app/rpc/user_rpc"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/core/service"
@@ -54,8 +54,8 @@ func serverRpc(app *App) *cobra.Command {
 		Short: "启动rpc服务",
 		Run: func(cmd *cobra.Command, args []string) {
 			server := zrpc.MustNewServer(app.config.Server, func(grpcServer *grpc.Server) {
-				rpc.RegisterHelloServer(grpcServer, helloServer.NewHelloServer(app.svcCtx))
-				rpc.RegisterUserServer(grpcServer, userServer.NewUserServer(app.svcCtx))
+				user_rpc.RegisterHelloServer(grpcServer, helloServer.NewHelloServer(app.svcCtx))
+				user_rpc.RegisterUserServer(grpcServer, userServer.NewUserServer(app.svcCtx))
 
 				if app.config.Server.Mode == service.DevMode || app.config.Server.Mode == service.TestMode {
 					reflection.Register(grpcServer)

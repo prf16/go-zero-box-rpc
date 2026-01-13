@@ -4,7 +4,7 @@ import (
 	"context"
 
 	"go-zero-box-rpc/app/internal/svc"
-	"go-zero-box-rpc/app/rpc"
+	"go-zero-box-rpc/app/rpc/user_rpc"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
@@ -23,10 +23,10 @@ func NewWorldLogic(ctx context.Context, svcCtx *svc.ServiceContext) *WorldLogic 
 	}
 }
 
-func (l *WorldLogic) World(in *rpc.HelloWorldReq) (*rpc.HelloWorldResp, error) {
+func (l *WorldLogic) World(in *user_rpc.HelloWorldReq) (*user_rpc.HelloWorldResp, error) {
 	// todo: add your logic here and delete this line
 
-	return &rpc.HelloWorldResp{
-		Message: "Hello World",
+	return &user_rpc.HelloWorldResp{
+		Message: "hello world",
 	}, nil
 }
