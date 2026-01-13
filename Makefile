@@ -31,7 +31,7 @@ build:
 rpc:
 	$(info ******************** rpc ********************)
 	@echo "process build [rpc]"
-	goctl rpc protoc ./app/rpc/app.proto --go_out=. --go-grpc_out=. --zrpc_out=./app --client=false --style=go_zero --home ./deploy/goctl/1.5.5/ -m
+	goctl rpc protoc ./app/rpc/user_rpc/app.proto --go_out=. --go-grpc_out=. --zrpc_out=./app --client=false --style=go_zero --home ./deploy/goctl/1.5.5/ -m
 	@echo "processed"
 
 .PHONY: wire

@@ -2,9 +2,9 @@
 // versions:
 // - protoc-gen-go-grpc v1.2.0
 // - protoc             v3.21.12
-// source: app/rpc/app.proto
+// source: app/rpc/user_rpc/app.proto
 
-package rpc
+package user_rpc
 
 import (
 	context "context"
@@ -35,7 +35,7 @@ func NewHelloClient(cc grpc.ClientConnInterface) HelloClient {
 
 func (c *helloClient) World(ctx context.Context, in *HelloWorldReq, opts ...grpc.CallOption) (*HelloWorldResp, error) {
 	out := new(HelloWorldResp)
-	err := c.cc.Invoke(ctx, "/rpc.Hello/World", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/user_rpc.Hello/World", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -80,7 +80,7 @@ func _Hello_World_Handler(srv interface{}, ctx context.Context, dec func(interfa
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/rpc.Hello/World",
+		FullMethod: "/user_rpc.Hello/World",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(HelloServer).World(ctx, req.(*HelloWorldReq))
@@ -92,7 +92,7 @@ func _Hello_World_Handler(srv interface{}, ctx context.Context, dec func(interfa
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var Hello_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "rpc.Hello",
+	ServiceName: "user_rpc.Hello",
 	HandlerType: (*HelloServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -101,7 +101,7 @@ var Hello_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "app/rpc/app.proto",
+	Metadata: "app/rpc/user_rpc/app.proto",
 }
 
 // UserClient is the client API for User service.
@@ -123,7 +123,7 @@ func NewUserClient(cc grpc.ClientConnInterface) UserClient {
 
 func (c *userClient) Login(ctx context.Context, in *UserLoginReq, opts ...grpc.CallOption) (*UserLoginResp, error) {
 	out := new(UserLoginResp)
-	err := c.cc.Invoke(ctx, "/rpc.User/Login", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/user_rpc.User/Login", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -132,7 +132,7 @@ func (c *userClient) Login(ctx context.Context, in *UserLoginReq, opts ...grpc.C
 
 func (c *userClient) Register(ctx context.Context, in *UserRegisterReq, opts ...grpc.CallOption) (*UserRegisterResp, error) {
 	out := new(UserRegisterResp)
-	err := c.cc.Invoke(ctx, "/rpc.User/Register", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/user_rpc.User/Register", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -141,7 +141,7 @@ func (c *userClient) Register(ctx context.Context, in *UserRegisterReq, opts ...
 
 func (c *userClient) Info(ctx context.Context, in *UserInfoReq, opts ...grpc.CallOption) (*UserInfoResp, error) {
 	out := new(UserInfoResp)
-	err := c.cc.Invoke(ctx, "/rpc.User/Info", in, out, opts...)
+	err := c.cc.Invoke(ctx, "/user_rpc.User/Info", in, out, opts...)
 	if err != nil {
 		return nil, err
 	}
@@ -194,7 +194,7 @@ func _User_Login_Handler(srv interface{}, ctx context.Context, dec func(interfac
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/rpc.User/Login",
+		FullMethod: "/user_rpc.User/Login",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServer).Login(ctx, req.(*UserLoginReq))
@@ -212,7 +212,7 @@ func _User_Register_Handler(srv interface{}, ctx context.Context, dec func(inter
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/rpc.User/Register",
+		FullMethod: "/user_rpc.User/Register",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServer).Register(ctx, req.(*UserRegisterReq))
@@ -230,7 +230,7 @@ func _User_Info_Handler(srv interface{}, ctx context.Context, dec func(interface
 	}
 	info := &grpc.UnaryServerInfo{
 		Server:     srv,
-		FullMethod: "/rpc.User/Info",
+		FullMethod: "/user_rpc.User/Info",
 	}
 	handler := func(ctx context.Context, req interface{}) (interface{}, error) {
 		return srv.(UserServer).Info(ctx, req.(*UserInfoReq))
@@ -242,7 +242,7 @@ func _User_Info_Handler(srv interface{}, ctx context.Context, dec func(interface
 // It's only intended for direct use with grpc.RegisterService,
 // and not to be introspected or modified (even as a copy)
 var User_ServiceDesc = grpc.ServiceDesc{
-	ServiceName: "rpc.User",
+	ServiceName: "user_rpc.User",
 	HandlerType: (*UserServer)(nil),
 	Methods: []grpc.MethodDesc{
 		{
@@ -259,5 +259,5 @@ var User_ServiceDesc = grpc.ServiceDesc{
 		},
 	},
 	Streams:  []grpc.StreamDesc{},
-	Metadata: "app/rpc/app.proto",
+	Metadata: "app/rpc/user_rpc/app.proto",
 }

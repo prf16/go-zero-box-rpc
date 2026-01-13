@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package rpc;
+package user_rpc;
 
-option go_package = "app/rpc";
+option go_package = "app/rpc/user_rpc";
 
 //  hello 示例
 message HelloWorldReq {

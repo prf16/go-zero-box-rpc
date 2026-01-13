@@ -9,12 +9,12 @@ import (
 
 	"go-zero-box-rpc/app/internal/logic/user"
 	"go-zero-box-rpc/app/internal/svc"
-	"go-zero-box-rpc/app/rpc"
+	"go-zero-box-rpc/app/rpc/user_rpc"
 )
 
 type UserServer struct {
 	svcCtx *svc.ServiceContext
-	rpc.UnimplementedUserServer
+	user_rpc.UnimplementedUserServer
 }
 
 func NewUserServer(svcCtx *svc.ServiceContext) *UserServer {
@@ -23,17 +23,17 @@ func NewUserServer(svcCtx *svc.ServiceContext) *UserServer {
 	}
 }
 
-func (s *UserServer) Login(ctx context.Context, in *rpc.UserLoginReq) (*rpc.UserLoginResp, error) {
+func (s *UserServer) Login(ctx context.Context, in *user_rpc.UserLoginReq) (*user_rpc.UserLoginResp, error) {
 	l := userlogic.NewLoginLogic(ctx, s.svcCtx)
 	return l.Login(in)
 }
 
-func (s *UserServer) Register(ctx context.Context, in *rpc.UserRegisterReq) (*rpc.UserRegisterResp, error) {
+func (s *UserServer) Register(ctx context.Context, in *user_rpc.UserRegisterReq) (*user_rpc.UserRegisterResp, error) {
 	l := userlogic.NewRegisterLogic(ctx, s.svcCtx)
 	return l.Register(in)
 }
 
-func (s *UserServer) Info(ctx context.Context, in *rpc.UserInfoReq) (*rpc.UserInfoResp, error) {
+func (s *UserServer) Info(ctx context.Context, in *user_rpc.UserInfoReq) (*user_rpc.UserInfoResp, error) {
 	l := userlogic.NewInfoLogic(ctx, s.svcCtx)
 	return l.Info(in)
 }
