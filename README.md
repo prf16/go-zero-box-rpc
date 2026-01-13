@@ -4,7 +4,7 @@
 
 go-zero-box-rpc 是 go-zero-box 体系中专门面向 RPC 服务 的工程模板方案。
 
-它基于 go-zero 官方 RPC 能力（gRPC + zrpc），在此之上进一步沉淀了，真实业务中验证过的 RPC 工程结构
+它基于 go-zero 官方 RPC 能力（gRPC + zrpc），在此之上进一步沉淀了，实战中验证过的 RPC 工程结构
 
 同样 go-zero-box 拥有的能力依然在 rpc 服务内置了，比如 scheduler、queue、script 服务。
 
