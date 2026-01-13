@@ -1,0 +1,53 @@
+syntax = "proto3";
+
+package rpc;
+
+option go_package = "app/rpc";
+
+//  hello 示例
+message HelloWorldReq {
+}
+message HelloWorldResp {
+  string Message = 1;
+}
+
+service Hello {
+  rpc World(HelloWorldReq) returns(HelloWorldResp);
+}
+
+// 用户相关
+
+message UserModel {
+  uint64 ID = 1;
+  string NickName = 2;
+}
+
+message UserLoginReq {
+  string Account = 1;
+  string Password = 2;
+}
+message UserLoginResp {
+  string Token = 3;
+  UserModel User = 2;
+}
+
+message UserRegisterReq {
+  string Account = 1;
+  string Password = 2;
+}
+message UserRegisterResp {
+  string ErrorCode = 1;
+  UserModel User = 2;
+}
+
+message UserInfoReq {
+}
+message UserInfoResp {
+  UserModel User = 1;
+}
+
+service User {
+  rpc Login(UserLoginReq) returns(UserLoginResp);
+  rpc Register(UserRegisterReq) returns(UserRegisterResp);
+  rpc Info(UserInfoReq) returns(UserInfoResp);
+}
