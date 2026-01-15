@@ -2,7 +2,7 @@
 
 ### 简介
 
-go-zero-box-rpc 是 go-zero-box 体系中专门面向 RPC 服务 的工程模板方案。
+go-zero-box-rpc 是 go-zero-box 体系中专门面向 rpc 服务 的工程模板方案。
 
 它基于 go-zero 官方 rpc 能力（gRPC + zrpc），在此之上进一步沉淀了实战中验证过的 rpc 工程结构
 
