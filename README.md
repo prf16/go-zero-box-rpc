@@ -4,11 +4,11 @@
 
 go-zero-box-rpc 是 go-zero-box 体系中专门面向 RPC 服务 的工程模板方案。
 
-它基于 go-zero 官方 RPC 能力（gRPC + zrpc），在此之上进一步沉淀了实战中验证过的 RPC 工程结构
+它基于 go-zero 官方 rpc 能力（gRPC + zrpc），在此之上进一步沉淀了实战中验证过的 rpc 工程结构
 
 同样 go-zero-box 拥有的能力依然在 rpc 服务内置了，比如 scheduler、queue、script 服务。
 
-如果你正在使用 go-zero 构建 多服务架构，并希望 RPC 服务：
+如果你正在使用 go-zero 构建 多服务架构，并希望 rpc 服务：
 
  - 结构清晰
 
@@ -28,7 +28,7 @@ go-zero-box-rpc 是 go-zero-box 体系中专门面向 RPC 服务 的工程模板
 │   ├── rpc                         rpc 描述文件
 │   ├── etc                         静态配置文件目录
 │   ├── internal                    内部业务逻辑
-│   ├── app.go                      应用程序的入口文件，定义了 api、scheduler、queue、script 服务。
+│   ├── app.go                      应用程序的入口文件，定义了 rpc、scheduler、queue、script 服务。
 │   ├── wire.go                     依赖注入文件
 │   └── wire_gin.go                 依赖注入生成文件
 ├── build                           项目构建目录
