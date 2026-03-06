@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
-	"go-zero-box-rpc/app/rpc/user_rpc"
+	"go-zero-box-rpc/api/user"
 
 	"github.com/zeromicro/go-zero/zrpc"
 )
@@ -14,7 +14,7 @@ func main() {
 		Target: "127.0.0.1:8080",
 	}).Conn()
 
-	userInfoResp, err := user_rpc.NewHelloClient(client).World(ctx, &user_rpc.HelloWorldReq{})
+	userInfoResp, err := user.NewHelloClient(client).World(ctx, &user.HelloWorldReq{})
 	if err != nil {
 		panic(err)
 	}

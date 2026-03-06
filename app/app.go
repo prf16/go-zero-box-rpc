@@ -3,17 +3,18 @@ package main
 import (
 	"flag"
 	"fmt"
-	"github.com/spf13/cobra"
-	"github.com/zeromicro/go-zero/core/logc"
+	"go-zero-box-rpc/api/user"
 	"go-zero-box-rpc/app/internal/command"
 	"go-zero-box-rpc/app/internal/queue"
 	"go-zero-box-rpc/pkg/asynqx"
 	"log"
 
+	"github.com/spf13/cobra"
+	"github.com/zeromicro/go-zero/core/logc"
+
 	"go-zero-box-rpc/app/internal/config"
 	helloServer "go-zero-box-rpc/app/internal/server/hello"
 	userServer "go-zero-box-rpc/app/internal/server/user"
-	"go-zero-box-rpc/app/rpc/user_rpc"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/core/service"
@@ -54,8 +55,8 @@ func serverRpc(app *App) *cobra.Command {
 		Short: "启动rpc服务",
 		Run: func(cmd *cobra.Command, args []string) {
 			server := zrpc.MustNewServer(app.config.Server, func(grpcServer *grpc.Server) {
-				user_rpc.RegisterHelloServer(grpcServer, helloServer.NewHelloServer(app.svcCtx))
-				user_rpc.RegisterUserServer(grpcServer, userServer.NewUserServer(app.svcCtx))
+				user.RegisterHelloServer(grpcServer, helloServer.NewHelloServer(app.svcCtx))
+				user.RegisterUserServer(grpcServer, userServer.NewUserServer(app.svcCtx))
 
 				if app.config.Server.Mode == service.DevMode || app.config.Server.Mode == service.TestMode {
 					reflection.Register(grpcServer)
