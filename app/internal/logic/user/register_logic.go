@@ -2,9 +2,9 @@ package userlogic
 
 import (
 	"context"
+	"go-zero-box-rpc/api/user"
 
 	"go-zero-box-rpc/app/internal/svc"
-	"go-zero-box-rpc/app/rpc/user_rpc"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )
@@ -23,8 +23,8 @@ func NewRegisterLogic(ctx context.Context, svcCtx *svc.ServiceContext) *Register
 	}
 }
 
-func (l *RegisterLogic) Register(in *user_rpc.UserRegisterReq) (*user_rpc.UserRegisterResp, error) {
+func (l *RegisterLogic) Register(in *user.UserRegisterReq) (*user.UserRegisterResp, error) {
 	// todo: add your logic here and delete this line
 
-	return &user_rpc.UserRegisterResp{}, nil
+	return &user.UserRegisterResp{}, nil
 }

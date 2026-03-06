@@ -7,14 +7,14 @@ package server
 import (
 	"context"
 
+	"go-zero-box-rpc/api/user"
 	"go-zero-box-rpc/app/internal/logic/hello"
 	"go-zero-box-rpc/app/internal/svc"
-	"go-zero-box-rpc/app/rpc/user_rpc"
 )
 
 type HelloServer struct {
 	svcCtx *svc.ServiceContext
-	user_rpc.UnimplementedHelloServer
+	user.UnimplementedHelloServer
 }
 
 func NewHelloServer(svcCtx *svc.ServiceContext) *HelloServer {
@@ -23,7 +23,7 @@ func NewHelloServer(svcCtx *svc.ServiceContext) *HelloServer {
 	}
 }
 
-func (s *HelloServer) World(ctx context.Context, in *user_rpc.HelloWorldReq) (*user_rpc.HelloWorldResp, error) {
+func (s *HelloServer) World(ctx context.Context, in *user.HelloWorldReq) (*user.HelloWorldResp, error) {
 	l := hellologic.NewWorldLogic(ctx, s.svcCtx)
 	return l.World(in)
 }
