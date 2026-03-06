@@ -3,11 +3,12 @@ package main
 import (
 	"flag"
 	"fmt"
+	"log"
+
 	"github.com/prf16/go-zero-box-rpc/api/user"
 	"github.com/prf16/go-zero-box-rpc/app/internal/command"
 	"github.com/prf16/go-zero-box-rpc/app/internal/queue"
 	"github.com/prf16/go-zero-box-rpc/pkg/asynqx"
-	"log"
 
 	"github.com/spf13/cobra"
 	"github.com/zeromicro/go-zero/core/logc"

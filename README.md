@@ -24,8 +24,8 @@ go-zero-box-rpc 是 go-zero-box 体系中专门面向 rpc 服务 的工程模板
 
 ```text
 .
+├── api                             api 描述文件
 ├── app                             包含应用程序的主要代码
-│   ├── rpc                         rpc 描述文件
 │   ├── etc                         静态配置文件目录
 │   ├── internal                    内部业务逻辑
 │   ├── app.go                      应用程序的入口文件，定义了 rpc、scheduler、queue、script 服务。
@@ -33,7 +33,6 @@ go-zero-box-rpc 是 go-zero-box 体系中专门面向 rpc 服务 的工程模板
 │   └── wire_gin.go                 依赖注入生成文件
 ├── build                           项目构建目录
 │   ├── app                         应用构建后的目录  
-│   │   ├── api                     接口文档目录     
 │   │   ├── etc                     配置文件目录
 │   │   └── app                     应用二进制文件
 │   └── app.tar                     应用构建后的打包文件
