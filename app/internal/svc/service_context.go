@@ -2,10 +2,10 @@ package svc
 
 import (
 	"github.com/google/wire"
-	"go-zero-box-rpc/app/internal/config"
-	"go-zero-box-rpc/app/internal/model"
-	"go-zero-box-rpc/app/internal/services"
-	"go-zero-box-rpc/pkg"
+	"github.com/prf16/go-zero-box-rpc/app/internal/config"
+	"github.com/prf16/go-zero-box-rpc/app/internal/model"
+	"github.com/prf16/go-zero-box-rpc/app/internal/services"
+	"github.com/prf16/go-zero-box-rpc/pkg"
 )
 
 var Provider = wire.NewSet(

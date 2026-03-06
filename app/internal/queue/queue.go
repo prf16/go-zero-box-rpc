@@ -2,8 +2,8 @@ package queue
 
 import (
 	"github.com/google/wire"
-	"go-zero-box-rpc/app/internal/queue/message"
-	"go-zero-box-rpc/pkg/asynqx"
+	"github.com/prf16/go-zero-box-rpc/app/internal/queue/message"
+	"github.com/prf16/go-zero-box-rpc/pkg/asynqx"
 )
 
 var Provider = wire.NewSet(

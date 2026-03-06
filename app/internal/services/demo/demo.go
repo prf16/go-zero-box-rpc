@@ -1,7 +1,7 @@
 package demo
 
 import (
-	"go-zero-box-rpc/app/internal/model/usermodel"
+	"github.com/prf16/go-zero-box-rpc/app/internal/model/usermodel"
 )
 
 type Service struct {

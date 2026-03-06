@@ -2,8 +2,8 @@ package model
 
 import (
 	"github.com/google/wire"
-	"go-zero-box-rpc/app/internal/model/messagemodel"
-	"go-zero-box-rpc/app/internal/model/usermodel"
+	"github.com/prf16/go-zero-box-rpc/app/internal/model/messagemodel"
+	"github.com/prf16/go-zero-box-rpc/app/internal/model/usermodel"
 )
 
 var Provider = wire.NewSet(

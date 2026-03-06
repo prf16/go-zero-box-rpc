@@ -1,4 +1,4 @@
-module go-zero-box-rpc
+module github.com/prf16/go-zero-box-rpc
 
 go 1.23.5
 

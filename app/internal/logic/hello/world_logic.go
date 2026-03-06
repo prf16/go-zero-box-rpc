@@ -2,9 +2,9 @@ package hellologic
 
 import (
 	"context"
-	"go-zero-box-rpc/api/user"
+	"github.com/prf16/go-zero-box-rpc/api/user"
 
-	"go-zero-box-rpc/app/internal/svc"
+	"github.com/prf16/go-zero-box-rpc/app/internal/svc"
 
 	"github.com/zeromicro/go-zero/core/logx"
 )

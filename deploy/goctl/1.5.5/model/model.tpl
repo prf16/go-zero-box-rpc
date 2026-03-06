@@ -6,7 +6,7 @@ import (
 )
 {{else}}
 
-import "go-zero-box-rpc/pkg/database"
+import "github.com/prf16/go-zero-box-rpc/pkg/database"
 
 {{end}}
 var _ {{.upperStartCamelObject}}Model = (*custom{{.upperStartCamelObject}}Model)(nil)

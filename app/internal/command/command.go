@@ -2,9 +2,9 @@ package command
 
 import (
 	"github.com/google/wire"
+	"github.com/prf16/go-zero-box-rpc/app/internal/command/demo"
+	"github.com/prf16/go-zero-box-rpc/pkg/asynqx"
 	"github.com/spf13/cobra"
-	"go-zero-box-rpc/app/internal/command/demo"
-	"go-zero-box-rpc/pkg/asynqx"
 )
 
 var Provider = wire.NewSet(

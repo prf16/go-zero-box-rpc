@@ -7,22 +7,22 @@
 package main
 
 import (
-	"go-zero-box-rpc/app/internal/command"
-	demo2 "go-zero-box-rpc/app/internal/command/demo"
-	"go-zero-box-rpc/app/internal/config"
-	"go-zero-box-rpc/app/internal/model"
-	"go-zero-box-rpc/app/internal/model/messagemodel"
-	"go-zero-box-rpc/app/internal/model/usermodel"
-	"go-zero-box-rpc/app/internal/queue"
-	message2 "go-zero-box-rpc/app/internal/queue/message"
-	"go-zero-box-rpc/app/internal/services"
-	"go-zero-box-rpc/app/internal/services/demo"
-	"go-zero-box-rpc/app/internal/services/message"
-	"go-zero-box-rpc/app/internal/svc"
-	"go-zero-box-rpc/pkg"
-	"go-zero-box-rpc/pkg/asynqx"
-	"go-zero-box-rpc/pkg/database"
-	"go-zero-box-rpc/pkg/redis"
+	"github.com/prf16/go-zero-box-rpc/app/internal/command"
+	demo2 "github.com/prf16/go-zero-box-rpc/app/internal/command/demo"
+	"github.com/prf16/go-zero-box-rpc/app/internal/config"
+	"github.com/prf16/go-zero-box-rpc/app/internal/model"
+	"github.com/prf16/go-zero-box-rpc/app/internal/model/messagemodel"
+	"github.com/prf16/go-zero-box-rpc/app/internal/model/usermodel"
+	"github.com/prf16/go-zero-box-rpc/app/internal/queue"
+	message2 "github.com/prf16/go-zero-box-rpc/app/internal/queue/message"
+	"github.com/prf16/go-zero-box-rpc/app/internal/services"
+	"github.com/prf16/go-zero-box-rpc/app/internal/services/demo"
+	"github.com/prf16/go-zero-box-rpc/app/internal/services/message"
+	"github.com/prf16/go-zero-box-rpc/app/internal/svc"
+	"github.com/prf16/go-zero-box-rpc/pkg"
+	"github.com/prf16/go-zero-box-rpc/pkg/asynqx"
+	"github.com/prf16/go-zero-box-rpc/pkg/database"
+	"github.com/prf16/go-zero-box-rpc/pkg/redis"
 )
 
 // Injectors from wire.go:

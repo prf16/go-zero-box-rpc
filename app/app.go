@@ -3,18 +3,18 @@ package main
 import (
 	"flag"
 	"fmt"
-	"go-zero-box-rpc/api/user"
-	"go-zero-box-rpc/app/internal/command"
-	"go-zero-box-rpc/app/internal/queue"
-	"go-zero-box-rpc/pkg/asynqx"
+	"github.com/prf16/go-zero-box-rpc/api/user"
+	"github.com/prf16/go-zero-box-rpc/app/internal/command"
+	"github.com/prf16/go-zero-box-rpc/app/internal/queue"
+	"github.com/prf16/go-zero-box-rpc/pkg/asynqx"
 	"log"
 
 	"github.com/spf13/cobra"
 	"github.com/zeromicro/go-zero/core/logc"
 
-	"go-zero-box-rpc/app/internal/config"
-	helloServer "go-zero-box-rpc/app/internal/server/hello"
-	userServer "go-zero-box-rpc/app/internal/server/user"
+	"github.com/prf16/go-zero-box-rpc/app/internal/config"
+	helloServer "github.com/prf16/go-zero-box-rpc/app/internal/server/hello"
+	userServer "github.com/prf16/go-zero-box-rpc/app/internal/server/user"
 
 	"github.com/zeromicro/go-zero/core/conf"
 	"github.com/zeromicro/go-zero/core/service"
