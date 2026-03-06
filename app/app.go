@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"log"
 
-	"github.com/prf16/go-zero-box-rpc/app/api/user"
+	"github.com/prf16/go-zero-box-rpc/api/user"
 	"github.com/prf16/go-zero-box-rpc/app/internal/command"
 	"github.com/prf16/go-zero-box-rpc/app/internal/queue"
 	"github.com/prf16/go-zero-box-rpc/pkg/asynqx"
