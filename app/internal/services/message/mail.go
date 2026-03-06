@@ -2,7 +2,7 @@ package message
 
 import (
 	"fmt"
-	"go-zero-box-rpc/app/internal/model/usermodel"
+	"github.com/prf16/go-zero-box-rpc/app/internal/model/usermodel"
 )
 
 func (s *Service) Mail(user *usermodel.User, content string) error {

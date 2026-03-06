@@ -2,8 +2,8 @@ package services
 
 import (
 	"github.com/google/wire"
-	"go-zero-box-rpc/app/internal/services/demo"
-	"go-zero-box-rpc/app/internal/services/message"
+	"github.com/prf16/go-zero-box-rpc/app/internal/services/demo"
+	"github.com/prf16/go-zero-box-rpc/app/internal/services/message"
 )
 
 var Provider = wire.NewSet(

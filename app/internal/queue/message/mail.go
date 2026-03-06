@@ -4,10 +4,10 @@ import (
 	"context"
 	"encoding/json"
 	"github.com/hibiken/asynq"
+	"github.com/prf16/go-zero-box-rpc/app/internal/model/usermodel"
+	"github.com/prf16/go-zero-box-rpc/app/internal/services/message"
+	"github.com/prf16/go-zero-box-rpc/pkg/asynqx"
 	"github.com/zeromicro/go-zero/core/logx"
-	"go-zero-box-rpc/app/internal/model/usermodel"
-	"go-zero-box-rpc/app/internal/services/message"
-	"go-zero-box-rpc/pkg/asynqx"
 )
 
 // 邮箱通知队列

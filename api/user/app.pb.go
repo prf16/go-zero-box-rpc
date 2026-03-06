@@ -20,7 +20,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// hello 示例
+//  hello 示例
 type HelloWorldReq struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache

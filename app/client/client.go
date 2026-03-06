@@ -3,7 +3,7 @@ package main
 import (
 	"context"
 	"fmt"
-	"go-zero-box-rpc/api/user"
+	"github.com/prf16/go-zero-box-rpc/api/user"
 
 	"github.com/zeromicro/go-zero/zrpc"
 )

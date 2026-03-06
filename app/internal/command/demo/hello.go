@@ -3,9 +3,9 @@ package demo
 import (
 	"context"
 	"github.com/hibiken/asynq"
+	"github.com/prf16/go-zero-box-rpc/pkg/asynqx"
 	"github.com/spf13/cobra"
 	"github.com/zeromicro/go-zero/core/logx"
-	"go-zero-box-rpc/pkg/asynqx"
 )
 
 type Hello struct {

@@ -5,11 +5,11 @@ package main
 
 import (
 	"github.com/google/wire"
-	"go-zero-box-rpc/app/internal/command"
-	"go-zero-box-rpc/app/internal/config"
-	"go-zero-box-rpc/app/internal/queue"
-	"go-zero-box-rpc/app/internal/svc"
-	"go-zero-box-rpc/pkg"
+	"github.com/prf16/go-zero-box-rpc/app/internal/command"
+	"github.com/prf16/go-zero-box-rpc/app/internal/config"
+	"github.com/prf16/go-zero-box-rpc/app/internal/queue"
+	"github.com/prf16/go-zero-box-rpc/app/internal/svc"
+	"github.com/prf16/go-zero-box-rpc/pkg"
 )
 
 type App struct {

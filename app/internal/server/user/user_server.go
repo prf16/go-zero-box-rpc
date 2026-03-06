@@ -7,9 +7,9 @@ package server
 import (
 	"context"
 
-	"go-zero-box-rpc/api/user"
-	"go-zero-box-rpc/app/internal/logic/user"
-	"go-zero-box-rpc/app/internal/svc"
+	"github.com/prf16/go-zero-box-rpc/api/user"
+	"github.com/prf16/go-zero-box-rpc/app/internal/logic/user"
+	"github.com/prf16/go-zero-box-rpc/app/internal/svc"
 )
 
 type UserServer struct {

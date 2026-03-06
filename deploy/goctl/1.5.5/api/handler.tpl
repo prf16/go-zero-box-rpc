@@ -1,7 +1,7 @@
 package {{.PkgName}}
 
 import (
-    {{if .HasRequest}}"go-zero-box-rpc/app/internal/utils/result"{{end}}
+    {{if .HasRequest}}"github.com/prf16/go-zero-box-rpc/app/internal/utils/result"{{end}}
 	"net/http"
 
 	"github.com/zeromicro/go-zero/rest/httpx"

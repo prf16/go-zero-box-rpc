@@ -1,6 +1,6 @@
 package messagemodel
 
-import "go-zero-box-rpc/pkg/database"
+import "github.com/prf16/go-zero-box-rpc/pkg/database"
 
 var _ MessageModel = (*customMessageModel)(nil)
 

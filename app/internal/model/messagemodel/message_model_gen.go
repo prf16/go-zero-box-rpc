@@ -14,7 +14,7 @@ import (
 	"github.com/zeromicro/go-zero/core/stores/sqlc"
 	"github.com/zeromicro/go-zero/core/stores/sqlx"
 	"github.com/zeromicro/go-zero/core/stringx"
-	"go-zero-box-rpc/app/internal/utils/tools"
+	"github.com/prf16/go-zero-box-rpc/app/internal/utils/tools"
 	"reflect"
 )
 
