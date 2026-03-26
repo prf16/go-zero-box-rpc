@@ -38,7 +38,14 @@ func main() {
 	flag.Parse()
 
 	var c *config.Config
-	conf.MustLoad(*configFile, &c)
+	err := conf.Load(*configFile, &c)
+	if err != nil {
+		err = conf.Load("etc/app.yaml", &c)
+		if err != nil {
+			fmt.Printf("%s\n", err.Error())
+			return
+		}
+	}
 
 	logc.MustSetup(c.Server.Log)
 	app := initApp(c)
