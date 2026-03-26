@@ -4,7 +4,7 @@
 //go:build !wireinject
 // +build !wireinject
 
-package main
+package app
 
 import (
 	"github.com/prf16/go-zero-box-rpc/app/internal/command"
