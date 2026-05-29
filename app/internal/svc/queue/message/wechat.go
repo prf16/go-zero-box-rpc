@@ -3,6 +3,7 @@ package message
 import (
 	"context"
 	"encoding/json"
+
 	"github.com/prf16/go-zero-box-rpc/app/internal/svc/model/usermodel"
 	"github.com/prf16/go-zero-box-rpc/app/internal/svc/services/message"
 	"github.com/prf16/go-zero-box-rpc/pkg/asynqx"
@@ -28,13 +29,13 @@ type WechatQueuePayload struct {
 // A task consists of a type and a payload.（任务由类型和有效载荷组成。）
 // ----------------------------------------------
 
-func WechatQueueEnqueue(ctx context.Context, payload WechatQueuePayload) error {
+func WechatQueueEnqueue(ctx context.Context, client *asynq.Client, payload WechatQueuePayload) error {
 	payloadByte, err := json.Marshal(payload)
 	if err != nil {
 		return err
 	}
 
-	taskInfo, err := asynqx.Client.EnqueueContext(ctx, asynqx.NewTask(WechatQueueType, payloadByte))
+	taskInfo, err := client.EnqueueContext(ctx, asynqx.NewTask(WechatQueueType, payloadByte))
 	if err != nil {
 		return err
 	}
