@@ -122,7 +122,7 @@ func serverScheduler(app *App) *cobra.Command {
 				handlers = append(handlers, &asynqx.Handler{
 					Type:      v.Command.Use,
 					Scheduler: v.Scheduler,
-					Async: func(ctx context.Context, task *asynq.Task) error {
+					Handler: func(ctx context.Context, task *asynq.Task) error {
 						v.Command.Run(v.Command, nil)
 						return nil
 					},
