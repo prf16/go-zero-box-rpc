@@ -1,13 +1,14 @@
 package app
 
 import (
+	"context"
 	"flag"
 	"fmt"
 	"log"
 
+	"github.com/hibiken/asynq"
 	"github.com/prf16/go-zero-box-rpc/api/user"
-	"github.com/prf16/go-zero-box-rpc/app/internal/command"
-	"github.com/prf16/go-zero-box-rpc/app/internal/queue"
+	"github.com/prf16/go-zero-box-rpc/app/internal/svc/queue"
 	"github.com/prf16/go-zero-box-rpc/pkg/asynqx"
 
 	"github.com/spf13/cobra"
@@ -48,9 +49,19 @@ func Start() {
 	}
 
 	logc.MustSetup(c.Server.Log)
+
 	app := initApp(c)
-	rootCmd.AddCommand(serverRpc(app), serverQueue(app), serverScheduler(app), serverAll(app))
-	rootCmd.AddCommand(command.RegisterHandlerScript(app.command)...)
+
+	rootCmd.AddCommand(
+		serverRpc(app),
+		serverQueue(app),
+		serverScheduler(app),
+		serverAll(app),
+	)
+
+	for _, v := range app.svcCtx.Command.Register() {
+		rootCmd.AddCommand(v.Command)
+	}
 
 	if err := rootCmd.Execute(); err != nil {
 		fmt.Printf("execute core service failed, %s\n", err.Error())
@@ -85,9 +96,9 @@ func serverQueue(app *App) *cobra.Command {
 			serviceGroup := service.NewServiceGroup()
 			defer serviceGroup.Stop()
 
-			handlers := queue.RegisterHandlerQueue(app.queue)
+			handlers := queue.RegisterHandlerQueue(app.svcCtx.Queue)
 			for _, v := range handlers {
-				serviceGroup.Add(asynqx.NewQueue(app.config.Asynqx, v))
+				serviceGroup.Add(asynqx.NewQueue(app.config.Redis, v))
 			}
 			serviceGroup.Start()
 			select {}
@@ -103,10 +114,25 @@ func serverScheduler(app *App) *cobra.Command {
 			serviceGroup := service.NewServiceGroup()
 			defer serviceGroup.Stop()
 
-			handlers := command.RegisterHandlerScheduler(app.command)
-			serviceGroup.Add(asynqx.NewScheduler(app.config.Asynqx, handlers))
+			var handlers []*asynqx.Handler
+			for _, v := range app.svcCtx.Command.Register() {
+				if v.Scheduler == "" {
+					continue
+				}
+
+				handlers = append(handlers, &asynqx.Handler{
+					Type:      v.Command.Use,
+					Scheduler: v.Scheduler,
+					Async: func(ctx context.Context, task *asynq.Task) error {
+						v.Command.Run(v.Command, nil)
+						return nil
+					},
+				})
+			}
+
+			serviceGroup.Add(asynqx.NewScheduler(app.config.Redis, handlers))
 			for _, v := range handlers {
-				serviceGroup.Add(asynqx.NewQueue(app.config.Asynqx, v))
+				serviceGroup.Add(asynqx.NewQueue(app.config.Redis, v))
 			}
 
 			serviceGroup.Start()

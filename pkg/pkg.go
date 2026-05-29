@@ -1,10 +1,11 @@
 package pkg
 
 import (
-	"github.com/google/wire"
 	"github.com/prf16/go-zero-box-rpc/pkg/asynqx"
 	"github.com/prf16/go-zero-box-rpc/pkg/database"
 	"github.com/prf16/go-zero-box-rpc/pkg/redis"
+
+	"github.com/google/wire"
 )
 
 var Provider = wire.NewSet(
