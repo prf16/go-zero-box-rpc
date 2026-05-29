@@ -63,7 +63,7 @@ func NewWechatQueue(messageService *message.Service) *WechatQueue {
 
 func (q *WechatQueue) Handler() *asynqx.Handler {
 	return &asynqx.Handler{
-		Type:        SmsQueueType,
+		Type:        WechatQueueType,
 		Concurrency: 10,
 		Async: func(ctx context.Context, t *asynq.Task) error {
 			logx.Infof("WechatQueue ProcessTask t.Payload: %s", string(t.Payload()))
