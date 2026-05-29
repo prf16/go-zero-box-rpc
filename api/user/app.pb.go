@@ -7,11 +7,10 @@
 package user
 
 import (
-	reflect "reflect"
-	sync "sync"
-
 	protoreflect "google.golang.org/protobuf/reflect/protoreflect"
 	protoimpl "google.golang.org/protobuf/runtime/protoimpl"
+	reflect "reflect"
+	sync "sync"
 )
 
 const (
@@ -21,7 +20,7 @@ const (
 	_ = protoimpl.EnforceVersion(protoimpl.MaxVersion - 20)
 )
 
-// hello 示例
+//  hello 示例
 type HelloWorldReq struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
