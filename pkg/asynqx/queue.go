@@ -8,6 +8,15 @@ import (
 	"github.com/hibiken/asynq"
 )
 
+// NewClient 生产者客户端
+func NewClient(c *redis.Config) *asynq.Client {
+	return asynq.NewClient(asynq.RedisClientOpt{
+		Addr:     c.Host,
+		Password: c.Pass,
+	})
+}
+
+// Server 消费者
 type Server struct {
 	server  *asynq.Server
 	handler *Handler
