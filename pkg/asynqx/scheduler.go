@@ -1,12 +1,12 @@
 package asynqx
 
 import (
-	"github.com/prf16/go-zero-box-rpc/pkg/redis"
 	"log"
 	"time"
 
+	"github.com/prf16/go-zero-box-rpc/pkg/redis"
+
 	"github.com/hibiken/asynq"
-	"github.com/zeromicro/go-zero/core/service"
 )
 
 type Scheduler struct {
@@ -15,7 +15,7 @@ type Scheduler struct {
 	handler   []*Handler
 }
 
-func NewScheduler(config *redis.Config, handler []*Handler) service.Service {
+func NewScheduler(config *redis.Config, handler []*Handler) *Scheduler {
 	loc, err := time.LoadLocation("Asia/Shanghai")
 	if err != nil {
 		panic(err)

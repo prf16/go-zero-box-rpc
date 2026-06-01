@@ -10,7 +10,6 @@ import (
 	"github.com/prf16/go-zero-box-rpc/api/user"
 	"github.com/prf16/go-zero-box-rpc/app/internal/svc/queue"
 	"github.com/prf16/go-zero-box-rpc/pkg/asynqx"
-
 	"github.com/spf13/cobra"
 	"github.com/zeromicro/go-zero/core/logc"
 
@@ -99,7 +98,7 @@ func serverQueue(app *App) *cobra.Command {
 
 			handlers := queue.Register(app.svcCtx.Queue)
 			for _, v := range handlers {
-				serviceGroup.Add(asynqx.NewQueue(app.config.Redis, v))
+				serviceGroup.Add(asynqx.NewServer(app.config.Redis, v))
 			}
 			serviceGroup.Start()
 			select {}
@@ -133,7 +132,7 @@ func serverScheduler(app *App) *cobra.Command {
 
 			serviceGroup.Add(asynqx.NewScheduler(app.config.Redis, handlers))
 			for _, v := range handlers {
-				serviceGroup.Add(asynqx.NewQueue(app.config.Redis, v))
+				serviceGroup.Add(asynqx.NewServer(app.config.Redis, v))
 			}
 
 			serviceGroup.Start()
