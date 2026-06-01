@@ -20,8 +20,6 @@ go-zero-box-rpc 是 go-zero-box 体系中专门面向 rpc 服务的工程模板�
 
 那么 go-zero-box-rpc 将非常适合你。
 
-好了，准备好开始了吗！
-
 ### 环境要求
 - Golang >= 1.23
 - MySQL >= 5.7
