@@ -4,18 +4,16 @@ import (
 	"log"
 	"time"
 
-	"github.com/prf16/go-zero-box-rpc/pkg/redis"
-
 	"github.com/hibiken/asynq"
 )
 
 type Scheduler struct {
-	config    *redis.Config
+	config    *Config
 	scheduler *asynq.Scheduler
 	handler   []*Handler
 }
 
-func NewScheduler(config *redis.Config, handler []*Handler) *Scheduler {
+func NewScheduler(config *Config, handler []*Handler) *Scheduler {
 	loc, err := time.LoadLocation("Asia/Shanghai")
 	if err != nil {
 		panic(err)
@@ -25,8 +23,9 @@ func NewScheduler(config *redis.Config, handler []*Handler) *Scheduler {
 		config: config,
 		scheduler: asynq.NewScheduler(
 			&asynq.RedisClientOpt{
-				Addr:     config.Host,
-				Password: config.Pass,
+				Addr:     config.Addr,
+				Password: config.Password,
+				DB:       config.DB,
 			},
 			&asynq.SchedulerOpts{
 				Location: loc,
@@ -53,6 +52,7 @@ func (q *Scheduler) Start() {
 	log.Printf("[server:scheduler] run...")
 	select {}
 }
+
 func (q *Scheduler) Stop() {
 	q.scheduler.Shutdown()
 	log.Printf("[server:scheduler] Shutdown")

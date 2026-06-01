@@ -33,7 +33,8 @@ func initApp(c *config.Config) *App {
 	redisConfig := c.Redis
 	redisDefault := redis.NewDefault(redisConfig)
 	redisRedis := redis.NewRedis(redisDefault)
-	client := asynqx.NewClient(redisConfig)
+	asynqxConfig := c.Asynqx
+	client := asynqx.NewClient(asynqxConfig)
 	asynqxAsynqx := asynqx.NewAsynqx(client)
 	pkgPkg := pkg.NewPkg(databaseDatabase, redisRedis, asynqxAsynqx)
 	world := hello.NewWorld()
