@@ -136,6 +136,7 @@ func serverScheduler(app *App) *cobra.Command {
 			}
 
 			serviceGroup.Start()
+			select {}
 		},
 	}
 }
