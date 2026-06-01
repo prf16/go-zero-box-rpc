@@ -49,6 +49,7 @@ func Start() {
 	}
 
 	logc.MustSetup(c.Server.Log)
+	defer logc.Close()
 
 	app := initApp(c)
 
@@ -101,6 +102,7 @@ func serverQueue(app *App) *cobra.Command {
 				serviceGroup.Add(asynqx.NewQueue(app.config.Redis, v))
 			}
 			serviceGroup.Start()
+			select {}
 		},
 	}
 }
