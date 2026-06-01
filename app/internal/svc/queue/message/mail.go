@@ -3,10 +3,8 @@ package message
 import (
 	"context"
 	"encoding/json"
-
 	"github.com/prf16/go-zero-box-rpc/app/internal/svc/model/usermodel"
 	"github.com/prf16/go-zero-box-rpc/app/internal/svc/services/message"
-	"github.com/prf16/go-zero-box-rpc/pkg/asynqx"
 
 	"github.com/hibiken/asynq"
 	"github.com/zeromicro/go-zero/core/logx"
@@ -53,33 +51,19 @@ func NewMailQueue(messageService *message.Service) *MailQueue {
 	return &MailQueue{MessageService: messageService}
 }
 
-// ---------------------------------------------------------------
-// Handler 处理程序
-// Write a function HandleXXXTask to handle the input task.（编写一个函数 HandleXXXTask 来处理输入的任务）
-// Note that it satisfies the asynq.HandlerFunc interface.（请注意它满足 asynq.HandlerFunc 接口。）
-//
-// Handler doesn't need to be a function. You can define a type
-// that satisfies asynq.Handler interface. See examples below.（处理程序不一定需要是一个函数。你可以定义一个满足 asynq.Handler 接口的类型。请参考下面的示例。）
-// ---------------------------------------------------------------
-
-func (q *MailQueue) Handler() *asynqx.Handler {
-	return &asynqx.Handler{
-		Type:        MailQueueType,
-		Concurrency: 10,
-		Handler: func(ctx context.Context, t *asynq.Task) error {
-			logx.Infof("MailQueue ProcessTask t.Payload: %+v", string(t.Payload()))
-			var payload MailQueuePayload
-			if err := json.Unmarshal(t.Payload(), &payload); err != nil {
-				logx.Errorf("MailQueue ProcessTask json.Unmarshal err: %v", err)
-				return err
-			}
-
-			err := q.MessageService.Mail(payload.User, payload.Content)
-			if err != nil {
-				logx.Errorf("MailQueue ProcessTask q.MessageService.MailQueue err: %v payload: %+v", err, payload)
-				return err
-			}
-			return nil
-		},
+// ProcessTask 处理任务函数
+func (q *MailQueue) ProcessTask(ctx context.Context, t *asynq.Task) error {
+	logx.Infof("MailQueue ProcessTask t.Payload: %+v", string(t.Payload()))
+	var payload MailQueuePayload
+	if err := json.Unmarshal(t.Payload(), &payload); err != nil {
+		logx.Errorf("MailQueue ProcessTask json.Unmarshal err: %v", err)
+		return err
 	}
+
+	err := q.MessageService.Mail(payload.User, payload.Content)
+	if err != nil {
+		logx.Errorf("MailQueue ProcessTask q.MessageService.MailQueue err: %v payload: %+v", err, payload)
+		return err
+	}
+	return nil
 }
