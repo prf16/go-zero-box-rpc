@@ -5,6 +5,7 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"os"
 
 	"github.com/hibiken/asynq"
 	"github.com/prf16/go-zero-box-rpc/api/user"
@@ -47,6 +48,7 @@ func Start() {
 		}
 	}
 
+	log.SetOutput(os.Stdout)
 	logc.MustSetup(c.Server.Log)
 	defer logc.Close()
 
